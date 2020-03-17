@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android WebView Messaging Test</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+<!-- Based on https://github.com/TomerPacific/MediumArticles/blob/master/AndroidtoJSNativeCommunicator/app/src/main/java/com/example/communicator/jscommunicator/MainActivity.java -->
+<div class="container">
+    <h1 class="display-4">WebView Messaging Prototype</h1>
+    <p>Click on the buttons to send messages from this web page to the Android WebView.</p>
+    <button class="btn-primary" onclick="sendMessage('You clicked the first button!');">One</button>
+    <button class="btn-primary" onclick="sendMessage('You clicked the second button!');">Two</button>
+</div>
+<script>
+
+        function sendMessage(msg) {
+            if (typeof myOwnJSHandler !== 'undefined') {
+                myOwnJSHandler.receiveMessageFromJS(msg);
+            }
+            else {
+                alert("Does not look like you are running this in an Android app with right right handler.");
+            }
+        }
+
+    </script>
+</body>
+
+
+</html>
