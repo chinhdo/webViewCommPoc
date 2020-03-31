@@ -18,7 +18,7 @@
 <script>
 
         function sendMessage(msg) {
-            if (typeof myOwnJSHandler !== 'undefined') {
+            if (typeof window.myOwnJSHandler !== 'undefined') {
                 myOwnJSHandler.receiveMessageFromJS(msg);
             }
             else {
